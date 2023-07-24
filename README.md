@@ -1,3 +1,3 @@
 https://karipicapp.onrender.com/
-User: Admin
-Password: password
+- User: Admin
+- Password: password
