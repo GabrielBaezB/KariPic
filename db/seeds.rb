@@ -4,7 +4,6 @@
 # Examples:
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
-#   Character.create(name: "Luke", movie: movies.first)
 admin_user = User.create!(
   name: "Admin",
   email: "admin@example.com",
@@ -12,4 +11,11 @@ admin_user = User.create!(
   role: :admin
 )
 
-puts "Admin user created successfully."
+# Crea una nueva imagen para el usuario administrador
+admin_image = Image.create!(
+  url: "https://s1.eestatic.com/2020/05/18/como/gatos-mascotas-trucos_490961518_152142875_1706x960.jpg",
+  imageable_type: "User",
+  imageable_id: admin_user.id
+)
+
+puts "Admin user created successfully with profile image."
