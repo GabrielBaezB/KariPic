@@ -2,7 +2,7 @@
   <div class="thumbnail"><%= image_tag picture.images[0], class: '_left' %></div>
   <div class="right">
     <h1 class="_h1 mx-5 my-3"><%= picture.feelings %></h1>
-    <div class="_author mx-3"><%= image_tag picture.user.images[0].url %>
+    <div class="_author mx-3"><%= image_tag picture.user.images[0]&.url %>
       <h2 class="_h2"><%= picture.user.name %></h2>
     </div>
     <div class="separator"></div>
