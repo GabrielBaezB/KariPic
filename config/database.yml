@@ -23,7 +23,7 @@ default: &default
 
 development:
   <<: *default
-  database: Pic_development
+  # database: Pic_development
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
@@ -80,5 +80,5 @@ development:
 # for a full overview on how database connection configuration can be specified.
 #
  production:
-   <<: *default
-   url: <%= ENV["DATABASE_URL"] %>
+  <<: *default
+  url: <%= ENV["DATABASE_URL"] %>
