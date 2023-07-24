@@ -1,0 +1,54 @@
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+    <div class="container">
+        <%= link_to 'KariPic' , root_path, class: 'navbar-brand' %>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive"
+                aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                Menu
+                <i class="fas fa-bars ms-1"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
+                    <li class="nav-item dropdown text-black">
+                        <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            <% if user_signed_in? %>
+                                <% if current_user.name %>
+
+                                    Hola <%= current_user.name %>
+                                        <% else %>
+                                            Hola <%= current_user.email %>
+                                                <% end %>
+                                                    <% else %>
+                                                        Dale registrate o conectate
+                                                        <% end %>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <% if user_signed_in? %>
+                                <li>
+                                    <%= button_to 'Cerrar sesión' , destroy_user_session_path, class: 'dropdown-item' ,
+                                        method: :delete %>
+                                </li>
+                                <% else %>
+                                    <li>
+                                        <%= link_to 'Iniciar sesión' , new_user_session_path, class: 'dropdown-item' %>
+                                    </li>
+                                    <li>
+                                        <hr class="dropdown-divider">
+                                    </li>
+                                    <li>
+                                        <%= link_to 'Registro' , new_user_registration_path, class: 'dropdown-item' %>
+                                    </li>
+                                    <% end %>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+    </div>
+</nav>
+<header class="masthead">
+    <div class="container">
+        <div class="masthead-heading">Photographer</div>
+        <div class="masthead-subheading">ABOUT ME</div>
+        <h4 class="text-center">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Repellendus quibusdam itaque corporis, nulla eos dolorum ratione, ipsa reiciendis soluta repudiandae est ut odit. Dolorum rerum ea ipsam, quia tenetur mollitia similique minima quam sapiente accusamus enim est eveniet obcaecati suscipit sed deserunt repellendus eum vero esse dolores. Alias, fugit vero.</h4>
+    </div>
+</header>

@@ -1,0 +1,32 @@
+<div class="card">
+  <%= image_tag @picture.images[0]%>
+
+</div>
+
+<h1><%= @picture.caption %></h1>
+<p><%= @picture.feelings %></p>
+
+<!-- Mostrar comentarios -->
+<% @picture.comments.each do |comment| %>
+  <div>
+    <p><strong><%= comment.user.name %></strong>:</p>
+    <p><%= comment.content %></p>
+    <% if current_user&.admin? %>
+    <%= link_to "Delete", picture_comment_path(@picture, comment), method: :delete, data: { confirm: "Are you sure you want to delete this comment?" } %>
+    <% end %>
+  </div>
+<% end %>
+
+<!-- Formulario para agregar comentarios -->
+<% if user_signed_in? %>
+<%= form_with(model: [@picture, Comment.new], url: picture_comments_path(@picture)) do |form| %>
+    <div>
+      <%= form.text_area :content, placeholder: "Add a comment..." %>
+    </div>
+    <div>
+      <%= form.submit "Submit" %>
+    </div>
+  <% end %>
+<% else %>
+  <p>Please <%= link_to "sign in", new_user_session_path %> to leave a comment.</p>
+<% end %>

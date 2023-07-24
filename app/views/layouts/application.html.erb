@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Pic</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+  
+  <script src="https://kit.fontawesome.com/f2f0ff3a9a.js" crossorigin="anonymous"></script>
+  <%= stylesheet_link_tag 'card', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= stylesheet_link_tag 'style', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+  <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
+</head>
+
+<body id="page-top">
+  
+    <%= render "shared/navbar" %>
+    <%= render "shared/about" %>
+  
+  <div class="container">
+    <%= yield %>
+  </div>
+
+  <footer class="footer bg-dark text-white text-center">
+    <div class="container py-3">
+      <p>&copy; <%= Time.now.year %> KARIPIC</p>
+      <p>Fecha actual: <%= Time.now.strftime("%d/%m/%Y") %></p>
+    </div>
+  </footer>
+  
+</body>
+</html>

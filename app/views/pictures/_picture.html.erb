@@ -1,0 +1,22 @@
+<div class="_card">
+  <div class="thumbnail"><%= image_tag picture.images[0], class: '_left' %></div>
+  <div class="right">
+    <h1 class="_h1 mx-5 my-3"><%= picture.feelings %></h1>
+    <div class="_author mx-3"><%= image_tag picture.user.images[0].url %>
+      <h2 class="_h2"><%= picture.user.name %></h2>
+    </div>
+    <div class="separator"></div>
+    <p class="_p"> <%= picture.caption %></p>
+  </div>
+  <h5 class="_h5"><%= picture.created_at.day %></h5>
+  <h6 class="_h6"><%= picture.created_at.strftime('%B').capitalize %></h6>
+  <ul class="_ul">
+    <li class="_li"><i class="fa fa-eye fa-2x"></i></li>
+    <li class="_li"><i class="fa fa-heart-o fa-2x"></i></li>
+    <li class="_li">
+      <%= link_to "", picture, class: "fa fa-envelope-o fa-2x custom-icon" %>
+      <span class="comment-count"><%= picture.comments.count %></span>
+    </li>
+    <li class="_li"><i class="fa fa-share-alt fa-2x custom-icon"></i></li>
+  <ul>
+</div>
