@@ -5,4 +5,5 @@ import * as bootstrap from "bootstrap"
 //= require navbar
 //= require jquery
 //= require jquery_ujs
+//= require main.js
 
